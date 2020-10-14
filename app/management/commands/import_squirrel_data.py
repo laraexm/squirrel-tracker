@@ -32,20 +32,20 @@ class Command(BaseCommand):
                 obj.Primary_Fur_Color = item['Primary Fur Color']
                 obj.Location = item['Location']
                 obj.Specific_Location = item['Specific Location']
-                obj.Running = item['Running']
-                obj.Chasing = item['Chasing']
-                obj.Climbing = item['Climbing']
-                obj.Eating = item['Eating']
-                obj.Foraging = item['Foraging']
-                obj.Other_Activity = item['Other Activities']
-                obj.Kuks = item['Kuks']
-                obj.Quaas = item['Quaas']
-                obj.Moans = item['Moans']
-                obj.Tail_Flags = item['Tail flags']
-                obj.Tail_Twitches = item['Tail twitches']
-                obj.Approaches = item['Approaches']
-                obj.Indifferent = item['Indifferent']
-                obj.Runs_From = item['Runs from']
+                obj.Running = str(item['Running']) == 'TRUE'
+                obj.Chasing = str(item['Chasing']) == 'TRUE'
+                obj.Climbing = str(item['Climbing']) == 'TRUE'
+                obj.Eating = str(item['Eating']) == 'TRUE'
+                obj.Foraging = str(item['Foraging']) == 'TRUE'
+                obj.Other_Activity = str(item['Other Activities']) == 'TRUE'
+                obj.Kuks = str(item['Kuks']) == 'TRUE'
+                obj.Quaas = str(item['Quaas']) == 'TRUE'
+                obj.Moans = str(item['Moans']) == 'TRUE'
+                obj.Tail_Flags = str(item['Tail flags']) == 'TRUE'
+                obj.Tail_Twitches = str(item['Tail twitches']) == 'TRUE'
+                obj.Approaches = str(item['Approaches']) == 'TRUE'
+                obj.Indifferent = str(item['Indifferent']) == 'TRUE'
+                obj.Runs_From = str(item['Runs from']) == 'TRUE'
 
                 obj.save()
 
