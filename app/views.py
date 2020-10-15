@@ -20,4 +20,10 @@ def detail(request,squirrel_id):
     }
     return render(request, 'app/detail.html', context)
 
-
+def map(request):
+    squirrels = Squirrel.objects.all()
+    plot = Squirrel.objects.order_by('?')[:100]
+    context = {
+            'squirrels': plot,
+            }
+    return render(request, 'app/map.html',context)
