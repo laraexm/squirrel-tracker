@@ -12,4 +12,12 @@ def index(request):
             }
     return render(request, 'app/index.html',context)
 
+def detail(request,squirrel_id):
+    squirrel = get_object_or_404(Squirrel, pk=squirrel_id)
+
+    context = {
+            'squirrel': squirrel,
+    }
+    return render(request, 'app/detail.html', context)
+
 
