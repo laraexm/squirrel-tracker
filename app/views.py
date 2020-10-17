@@ -8,6 +8,8 @@ from django.http import HttpResponseRedirect
 
 from .forms import CreateNewForm
 
+from .forms import UpdateForm
+
 # Create your views here.
 
 def index(request):
@@ -33,14 +35,16 @@ def map(request):
             }
     return render(request, 'app/map.html',context)
 
-def update_sighting(request, squirrel_id):
-    obj = get_object_or_404(Squirrel, Unique_Squirrel_ID=squirrel_id)
-    form = CreateNewForm(request.POST or None, instance=obj)
+def update_sighting(request, Unique_Squirrel_ID):
+    obj = Squirrel.objects.filter(Unique_Squirrel_ID=Unique_Squirrel_ID)
     if request.method  == 'POST':
+        form = UpdateForm(request.POST or None, instance=obj)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/sightings/')
-    return render(request, 'app/update.html', {'form': form})    
+    else:
+        form = UpdateForm()
+        return render(request, 'app/update.html', {'form': form})    
 
 def create_new_sighting(request):
     if request.method  == 'POST':

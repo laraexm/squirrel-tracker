@@ -8,6 +8,7 @@ urlpatterns = [
         path('<int:squirrel_id>/', views.detail, name='detail'),
         path('map/', views.map),
         path('sightings/add/', views.create_new_sighting, name='Create New Sighting'),
+        path('sightings/<Unique_Squirrel_ID>/', views.update_sighting, name='Update Sighting'),
         ]
 
 

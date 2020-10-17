@@ -4,16 +4,17 @@ from .models import Squirrel
 
 class CreateNewForm(ModelForm):
     class Meta:
-        model = Squirrel
+        modeil = Squirrel
         fields = '__all__'
 
-class UpdateForm(UpdateView):
-    model = Squirrel
-    fields = [
-        'X_Latitude',
-        'Y_Longitude',
-        'Unique_Squirrel_ID',
-        'Shift',
-        'Date',
-        'Age',
-    ]
+class UpdateForm(ModelForm):
+    class Meta:
+        model = Squirrel
+        fields = [
+            'X_Latitude',
+            'Y_Longitude',
+            'Unique_Squirrel_ID',
+            'Shift',
+            'Date',
+            'Age',
+        ]
