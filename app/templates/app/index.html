@@ -1,13 +1,17 @@
 <!doctype html>
 <html>
         <body>
+
 		<p>This is a list of all the sightings!
+		<br><a href="{% url 'app:Create New Sighting'%}">Create New Sighting</a></li>
 		</p>
 		<ul>
                         {% for squirrel in squirrels %}
                 <li>Unique Squirrel ID: {{ squirrel.Unique_Squirrel_ID }}
 			<br>	Date: {{squirrel.Date}}
 			<br><a href="{% url 'app:detail' squirrel.id %}">Details</a></li>
+	 		<br><a href="{% url 'app:Update Sighting' squirrel.Unique_Squirrel_ID %}">Update</a></li>
+			<br>
 		{% endfor %}
                 </ul>
         </body> 
