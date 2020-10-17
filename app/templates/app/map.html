@@ -35,8 +35,8 @@
     <!-- Leaflet JS -->
     <script>
         var map_center = [
+	    40.782091,
             -73.964285,
-            40.782091
 	];
         var zoom_level = 14;
         var map = L.map('map').setView(map_center, zoom_level);
@@ -52,7 +52,7 @@
         <!-- L.Icon.Default.prototype.options.shadowAnchor = [0, 0]; -->
 
         {% for squirrel in squirrels %}
-          var point_lat_lon = [{{ squirrel.X_Latitude }}, {{ squirrel.Y_Longitude }}];
+          var point_lat_lon = [{{ squirrel.Y_Longitude }}, {{ squirrel.X_Latitude }}];
           var marker = L.marker(point_lat_lon).addTo(map);
         {% endfor %}
     </script>
