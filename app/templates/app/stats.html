@@ -2,28 +2,73 @@
 <html>
 <head>
 <style>
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(200,200,200);
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+td, th {
+  border: 1px solid rgb(190,190,190);
+  padding: 10px 20px;
+}
+
+th {
+  background-color: rgb(235,235,235);
+}
+
+td {
+  text-align: center;
+}
+
+tr:nth-child(even) td {
+  background-color: rgb(250,250,250);
+}
+
+tr:nth-child(odd) td {
+  background-color: rgb(245,245,245);
+}
 p {text-align: center;}
 h2{text-align: center;}
 body {
-  background-image: url('https://nypost.com/wp-content/uploads/sites/2/2019/12/robberies-serious-crimes-spike-in-central-park-this-year.jpg');
+  background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-autumnal-poster-squirrel-pine-cone-ginkgo-image_15309.jpg');
+  background-size: 1800px;
 }
 </style>
 </head>
 <body>
 
-<h2 style="color:white;">Some statistics about the sightings</h2>
+<h2 style="color:Black;">Some Statistics about Sightings:</h2>
 
 <p style="background-color:LightSkyBlue;color:White;font-size:15px;font-family:verdana">
-
-         <br> - Total number of sightings: {{ total_number }}
-         <br>- Number of AM shift sightings: {{ am_shift }}
-         <br>- Number of sightings of adult squirrels: {{ adult_count}}
-         <br>- Number of sightings of grey squirrels: {{ gray_count }}
-         <br>- Number of sightings of squirrels on the ground plane:  {{ ground_count }}
-	 <br>            
-
+	<table align="center">
+			<tr>
+				<td colspan="3">&nbsp;</td>
+				<th scope="col">Result</th>
+			</tr>
+			<tr>
+				<th colspan="3" scope="row">Total number of sightings</th>
+				<td>{{ total_number }}</td>
+			</tr>
+			<tr>
+                                <th colspan="3" scope="row">Number of AM shift sightings</th>
+                                <td>{{ am_shift }}</td>
+                        </tr>
+			<tr>
+                                <th colspan="3" scope="row">Number of sightings of adult squirrels</th>
+				<td>{{ adult_count }}</td>
+                        </tr>
+			<tr>
+                                <th colspan="3" scope="row">Number of sightings of grey squirrels</th>
+                                <td>{{ gray_count }}</td>
+                        </tr>
+			<tr>
+                                <th colspan="3" scope="row">Number of sightings of squirrels on the ground plane</th>
+				<td>{{ ground_count }}</td>
+                        </tr>
+	</table>
 </p>
-<h2 style="color:AliceBlue;">Thank you for visiting our website!</h2>
+<h2 style="color:Black;">Thank you for visiting our website!</h2>
 <p><a href="{% url 'app:index' %}">Go back to index</a>
 </p>
 </body>
