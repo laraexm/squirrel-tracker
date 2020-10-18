@@ -21,31 +21,25 @@ def index(request):
             }
     return render(request, 'app/index.html',context)
 
-def detail(request,Unique_Squirrel_ID):
-    squirrel = Squirrel.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
-
-    context = {
-            'squirrel': squirrel,
-    }
-    return render(request, 'app/detail.html', context)
-
 def map(request):
     squirrels = Squirrel.objects.all()
     plot = Squirrel.objects.order_by('?')[:100]
     context = {
-            'squirrels': plot,
+            'plot': plot,
             }
     return render(request, 'app/map.html',context)
 
+from django.template import RequestContext
+
 def update_sighting(request, Unique_Squirrel_ID):
-    obj = Squirrel.objects.filter(Unique_Squirrel_ID=Unique_Squirrel_ID)
+    instance = Squirrel.objects.filter(Unique_Squirrel_ID=Unique_Squirrel_ID).first()
     if request.method  == 'POST':
-        form = UpdateForm(request.POST or None, instance=obj)
+        form = UpdateForm(request.POST, instance=instance)
         if form.is_valid():
-            form.save()
-        return HttpResponseRedirect('/sightings/')
+            form.save(commit=True)
+        return HttpResponseRedirect('/sightings/',Unique_Squirrel_ID=instance.Unique_Squirrel_ID)
     else:
-        form = UpdateForm()
+        form = UpdateForm(instance=instance)
         return render(request, 'app/update.html', {'form': form})    
 
 def create_new_sighting(request):

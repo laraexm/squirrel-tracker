@@ -7,6 +7,7 @@ class CreateNewForm(ModelForm):
         model = Squirrel
         fields = '__all__'
 
+
 class UpdateForm(ModelForm):
     class Meta:
         model = Squirrel
