@@ -1,3 +1,6 @@
+Group name: [Xiaomeng E & Shukun Wang]
+UNIs: [sw3506, xe2000]
+
 # Squirrel Tracker: 
 ## A web-app used to keep track of the squirrels in central park
 
