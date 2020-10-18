@@ -23,6 +23,12 @@ Group Members:
 ### /map/
     * This page is a map of NYC with 100 random squirrel sightings plotted on it
     * Feel free to zoom in and zoom out
+    
+### /sightings/stats/
+    * This page demonstrates some stats of the sightings data in the database
+   
+### /sightings/add/
+    * This page is used to create a new squirrel sighting
    
 # Technologies
    * This project utilizes Google VM as the main development instance
