@@ -10,6 +10,8 @@ from .forms import CreateNewForm
 
 from .forms import UpdateForm
 
+from django.http import HttpResponse
+
 # Create your views here.
 
 def index(request):
@@ -19,8 +21,8 @@ def index(request):
             }
     return render(request, 'app/index.html',context)
 
-def detail(request,squirrel_id):
-    squirrel = get_object_or_404(Squirrel, pk=squirrel_id)
+def detail(request,Unique_Squirrel_ID):
+    squirrel = Squirrel.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
 
     context = {
             'squirrel': squirrel,
@@ -41,7 +43,7 @@ def update_sighting(request, Unique_Squirrel_ID):
         form = UpdateForm(request.POST or None, instance=obj)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/sightings/')
+        return HttpResponseRedirect('/sightings/')
     else:
         form = UpdateForm()
         return render(request, 'app/update.html', {'form': form})    
@@ -50,8 +52,10 @@ def create_new_sighting(request):
     if request.method  == 'POST':
         form = CreateNewForm(request.POST)
         if form.is_valid():
-            form.save()
+            form.save(commit=False)
             return HttpResponseRedirect('/sightings/')
+        else:
+            return render(request, 'app/create_new.html', {'form':'form.errors'})
     else:
         form = CreateNewForm()
         return render(request, 'app/create_new.html', {'form': form})
