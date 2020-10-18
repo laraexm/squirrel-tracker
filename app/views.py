@@ -29,8 +29,6 @@ def map(request):
             }
     return render(request, 'app/map.html',context)
 
-from django.template import RequestContext
-
 def update_sighting(request, Unique_Squirrel_ID):
     instance = Squirrel.objects.filter(Unique_Squirrel_ID=Unique_Squirrel_ID).first()
     if request.method  == 'POST':
