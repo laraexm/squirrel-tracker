@@ -22,7 +22,7 @@ def index(request):
     return render(request, 'app/index.html',context)
 
 def detail(request,Unique_Squirrel_ID):
-    squirrel = Squirrel.objects.get(Unique_Squirrel_ID=Unique_Squirrel_ID)
+    squirrel = Squirrel.objects.filter(Unique_Squirrel_ID=Unique_Squirrel_ID)
 
     context = {
             'squirrel': squirrel,
@@ -33,7 +33,7 @@ def map(request):
     squirrels = Squirrel.objects.all()
     plot = Squirrel.objects.order_by('?')[:100]
     context = {
-            'squirrels': plot,
+            'plot': plot,
             }
     return render(request, 'app/map.html',context)
 
