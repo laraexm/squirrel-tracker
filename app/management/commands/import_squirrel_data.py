@@ -28,7 +28,7 @@ class Command(BaseCommand):
                 date_str = raw[-4:]+'-'+ raw[:2]+'-'+raw[2:4]
                 date = datetime.datetime.strptime(date_str, '%Y-%m-%d') 
                 obj.Date = date
-                obj.age = item['Age']
+                obj.Age = item['Age']
                 obj.Primary_Fur_Color = item['Primary Fur Color']
                 obj.Location = item['Location']
                 obj.Specific_Location = item['Specific Location']
