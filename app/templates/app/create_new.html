@@ -4,9 +4,22 @@
 		<meta charset='utf8'>
 	</head>
 	<body>
-		<form action="/sightings/" method="post">
-   			 {% csrf_token %}
-   			 {{ form.as_p }}
-			 <br>
-   			 <input type="submit" value="Submit">
+		<form method="post" action="/sightings/">
+   			{% csrf_token %}
+			{% if form.non_field_errors %}
+        			<div class="form-group text-error">
+            				{{ form.non_field_errors }}
+        			</div>
+			{% endif %}	
+   			{% for field in form.visible_fields %}
+        			{{ field.help_text}}
+        			{{ field }}
+				<br>
+        			{% if field.errors %}
+            				<span>{{ field.errors|striptags }}</span>
+        			{% endif %}
+   			{% endfor %}
+			<br>
+   			<input type="submit" value="Submit">
 		</form>
+</html>

@@ -52,8 +52,10 @@ def create_new_sighting(request):
     if request.method  == 'POST':
         form = CreateNewForm(request.POST)
         if form.is_valid():
-            form.save()
+            form.save(commit=False)
             return HttpResponseRedirect('/sightings/')
+        else:
+            return render(request, 'app/create_new.html', {'form':'form.errors'})
     else:
         form = CreateNewForm()
         return render(request, 'app/create_new.html', {'form': form})
