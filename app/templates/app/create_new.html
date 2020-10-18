@@ -2,8 +2,18 @@
 <html>
 	<head>
 		<meta charset='utf8'>
+		<style>
+		body {
+ 			margin: 2;
+			font-family: cursive, sans-serif;
+			color: GhostWhite;
+			background-image: url('https://lh3.googleusercontent.com/proxy/gpvHxK5FQ7Dfvrg61osfR3A__Do6RrPL2CJq-ZJj5lcVNWJkuycSuycpDkhqMHeDzRa8aGBc8Xho4SMp5Pi9FUrzhA');
+			background-size:cover;
+		}
+		</style>
 	</head>
 	<body>
+		<h1 style="color:GhostWhite;font-family: cursive, sans-serif;">Please Fill the Form:</h2>
 		<form method="post" action="/sightings/">
    			{% csrf_token %}
 			{% if form.non_field_errors %}
