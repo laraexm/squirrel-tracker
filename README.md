@@ -5,7 +5,7 @@ This is for the group project of IEORE4501
 
 Group Members:
 * Xiaomeng E (laraexm)
-* Shukun Wang (chillywang)
+* Shukun Wang (chilly-wang)
 
 # Introduction
 ## Features
