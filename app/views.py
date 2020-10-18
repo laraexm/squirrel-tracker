@@ -60,4 +60,19 @@ def create_new_sighting(request):
         form = CreateNewForm()
         return render(request, 'app/create_new.html', {'form': form})
 
+def stats(request):
+    squirrels = Squirrel.objects.all()
+    total_number = len(squirrels)
+    am_shift = Squirrel.objects.filter(Shift='AM').count()
+    adult_count = Squirrel.objects.filter(Age='Adult').count()
+    gray_count = Squirrel.objects.filter(Primary_Fur_Color = 'Gray').count()
+    ground_count = Squirrel.objects.filter(Location = 'Ground Plane').count()
 
+    context = {
+            'total_number': total_number,
+            'am_shift': am_shift,
+            'adult_count': adult_count,
+            'gray_count': gray_count,
+            'ground_count': ground_count,
+            }
+    return render(request, 'app/stats.html',context)
