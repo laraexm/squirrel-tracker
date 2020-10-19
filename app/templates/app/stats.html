@@ -29,19 +29,21 @@ tr:nth-child(odd) td {
   background-color: rgb(245,245,245);
 }
 p {text-align: center;}
+h1{text-align: center;}
 h2{text-align: center;}
 body {
-  background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-autumnal-poster-squirrel-pine-cone-ginkgo-image_15309.jpg');
-  background-size: 1800px;
+	background-image: url('https://www.desktopbackground.org/download/o/2015/06/10/962068_high-resolution-nature-spring-animal-squirrel-wallpapers-hd-18-full_1920x1080_h.jpg');
+	background-attachment: fixed;
+	background-size: cover;
 }
 </style>
 </head>
 <body>
 
-<h2 style="color:Black;">Some Statistics about Sightings:</h2>
+<h1 style="color:Black;">Some Statistics about Sightings:</h1>
 
 <p style="background-color:LightSkyBlue;color:White;font-size:15px;font-family:verdana">
-	<table align="center">
+	<table align=center>
 			<tr>
 				<td colspan="3">&nbsp;</td>
 				<th scope="col">Result</th>
@@ -69,7 +71,7 @@ body {
 	</table>
 </p>
 <h2 style="color:Black;">Thank you for visiting our website!</h2>
-<p><a href="{% url 'app:index' %}">Go back to index</a>
+<p><a href="{% url 'app:index' %}"><button type="button">Go Back to Index</button></a>
 </p>
 </body>
 </html>
