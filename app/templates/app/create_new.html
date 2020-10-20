@@ -21,7 +21,7 @@
    			{% csrf_token %}
 			{% if form.non_field_errors %}
         			<div class="form-group text-error">
-            				{{ form.non_field_errors }}
+					{{ form.non_field_errors }}
         			</div>
 			{% endif %}	
    			{% for field in form.visible_fields %}
