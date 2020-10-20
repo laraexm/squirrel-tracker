@@ -33,12 +33,14 @@ def update_sighting(request, Unique_Squirrel_ID):
     instance = get_object_or_404(Squirrel, Unique_Squirrel_ID=Unique_Squirrel_ID)
     if request.method  == 'POST':
         form = UpdateForm(request.POST, instance=instance)
-        if form.isvalid():
+        if form.is_valid():
             form.save()
-        return HttpResponseRedirect('/sightings/',Unique_Squirrel_ID=instance.Unique_Squirrel_ID)
+            return HttpResponseRedirect('/sightings/')
+        else:
+            return render(request, 'app/update.html', {'form':'form.errors'})
     else:
         form = UpdateForm(instance=instance)
-    return render(request, 'app/update.html', {'form': form})    
+        return render(request, 'app/update.html', {'form': form})    
 
 def create_new_sighting(request):
     if request.method  == 'POST':

@@ -17,7 +17,7 @@
 	</head>
 	<body>
 		<h1 style="color: DarkSlateGray; font-family: cursive, sans-serif; line-height:1;">Create Your Spot:</h2>
-		<form method="post" action="/sightings/">
+		<form method="post">
    			{% csrf_token %}
 			{% if form.non_field_errors %}
         			<div class="form-group text-error">

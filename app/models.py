@@ -119,6 +119,7 @@ class Squirrel(models.Model):
     )
 
     Other_Activity = models.TextField(
+        help_text=_('Other activities?'),
         blank=True,
     )
 
