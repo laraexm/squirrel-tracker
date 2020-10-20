@@ -35,10 +35,10 @@ def update_sighting(request, Unique_Squirrel_ID):
         form = UpdateForm(request.POST, instance=instance)
         if form.isvalid():
             form.save()
-        return HttpResponseRedirect('/sightings/',Unique_Squirrel_ID=instance.Unique_Squirrel_ID)
+            return HttpResponseRedirect('/sightings/',Unique_Squirrel_ID=instance.Unique_Squirrel_ID)
     else:
         form = UpdateForm(instance=instance)
-    return render(request, 'app/update.html', {'form': form})    
+        return render(request, 'app/update.html', {'form': form})    
 
 def create_new_sighting(request):
     if request.method  == 'POST':
@@ -50,7 +50,7 @@ def create_new_sighting(request):
             return render(request, 'app/create_new.html', {'form':'form.errors'})
     else:
         form = CreateNewForm()
-        return render(request, 'app/create_new.html', {'form': form})
+    return render(request, 'app/create_new.html', {'form': form})
 
 def stats(request):
     squirrels = Squirrel.objects.all()
