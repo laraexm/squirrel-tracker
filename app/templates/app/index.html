@@ -1,7 +1,5 @@
 <!doctype html>
 <html>
-
-
 <header>
       <div class="collapse bg-dark" id="navbarHeader">
         <div class="container">
@@ -49,7 +47,7 @@
 </header>
 
 <head>
-	<style>
+	<style type="text/css">
 	body {
 	 background-image: url('https://wallpapermemory.com/uploads/786/squirrel-background-hd-1440x900-311648.jpg');
 	 background-attachment: fixed;
@@ -59,6 +57,8 @@
 	<br>
         <h3 class="text-white">Below is a list of all the sightings:</h3>
         <ul class="list-unstyled"></ul>
+	<div class="panel-body" style="height: 400px; overflow-y:scroll">	        
+		<span>
 		<ul>
                         {% for squirrel in squirrels %}
                 <li>Unique Squirrel ID: {{ squirrel.Unique_Squirrel_ID }}
@@ -68,6 +68,8 @@
 		{% endfor %}
 
 		</ul>
+		</span>
+        </div>
 		</body>
 </head>
 
