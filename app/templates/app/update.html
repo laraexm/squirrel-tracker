@@ -17,7 +17,7 @@
 </head>
 <body>
     <h1 style="color: DarkSlateGray; font-family: cursive, sans-serif; line-height: 1;">Please Update Your Spot:</h1>
-    <form action="/sightings/" method="post">
+    <form method="post" action="/sightings/" >
 	{% csrf_token %}
         {% for field in form.visible_fields %}
         {{ field.help_text}}
